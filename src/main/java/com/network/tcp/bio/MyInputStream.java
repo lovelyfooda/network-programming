@@ -8,7 +8,7 @@ import java.io.InputStream;
 public class MyInputStream extends FilterInputStream {
 
     private byte[] buf;
-    private int SIZE = 12;
+    private int SIZE = 1024;
 
     public MyInputStream(InputStream is) {
         super(is);
@@ -17,6 +17,7 @@ public class MyInputStream extends FilterInputStream {
 
     public String readAll() throws IOException {
         int limit = in.read(buf);
+        System.out.println("读取到的size为：" + limit);
         if (limit < SIZE) {
             // 一次就已经读完了
             return new String(buf, 0, limit);

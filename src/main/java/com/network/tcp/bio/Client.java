@@ -10,8 +10,8 @@ public class Client {
         try (Socket socket = new Socket("localhost", 8080)) {
             OutputStream os = socket.getOutputStream();
             InputStream is = socket.getInputStream();
-
-            os.write("我只是测试一下而已额\r\n".getBytes());
+            os.write((byte)13);
+//            os.write("我只是测试一下而已额\r\n".getBytes());
             os.flush();
 
             byte[] bufIn = new byte[1024];
